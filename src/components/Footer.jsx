@@ -14,14 +14,13 @@ export default function Footer() {
     <Box
       component="footer"
       sx={{
-        backgroundColor: colors.darkest, 
-        border: `2px solid ${colors.accent}`,
-        mt: 4,
-        mb: 4,
-        ml: 70,
-        mr: 70,
-        py: { xs: 2, sm: 3 },
-        textAlign: 'center',
+        backgroundColor: 'rgba(82, 109, 130, 0)',
+          maxWidth: '300px',
+          margin: '0 auto',
+          padding: { xs: '20px 15px', sm: '25px 20px', md: '30px 20px' },
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)',
+          borderRadius: '10px',
+          border: '2px solid #9DB2BF'
       }}
     >
       <Typography

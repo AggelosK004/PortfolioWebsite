@@ -13,4 +13,11 @@ export const projectsData = [
     github: 'https://github.com/AggelosK004/CloudView',
     live: 'https://aggelosk004.github.io/CloudView/',
   },
+  {
+    title: 'Portfolio Website',
+    description: 'A personal portfolio website showcasing my projects, skills, and experience. Built with React.js and Material-UI, featuring a responsive design and smooth animations to enhance user experience.',
+    technologies: ['React.js', 'Material-Ui', 'JavaScript', 'CSS'],
+    github: 'https://github.com/AggelosK004/PortfolioWebsite',
+    live: 'https://aggelosk004.github.io/PortfolioWebsite/',
+  },
 ];
