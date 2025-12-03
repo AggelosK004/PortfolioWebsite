@@ -9,6 +9,7 @@ import { FaEnvelope, FaGithub, FaLinkedin, FaPhone } from 'react-icons/fa';
 import { MdLocationOn } from 'react-icons/md';
 import Lottie from 'lottie-react';
 import duckAnimation from '../assets/Pixel-Duck.json'; 
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -22,16 +23,31 @@ export default function Contact() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    const subject = `Portfolio message from ${formData.name || 'Visitor'}`;
-    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
-    const mailto = `mailto:aggelosk2004@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    window.location.href = mailto;
+  e.preventDefault();
 
-    setFormData({ name: '', email: '', message: '' });
+  const serviceID = 'service_aa8t18d';
+  const templateID = 'template_f9zb99q';
+  const publicKey = 'yUQdvW7fsvkuR8m2D';
+
+  const templateParams = {
+    from_name: formData.name,
+    from_email: formData.email,
+    message: formData.message,
+    to_name: 'Aggelos',
   };
+
+  emailjs
+    .send(serviceID, templateID, templateParams, publicKey)
+    .then((response) => {
+      console.log('SUCCESS!', response.status, response.text);
+      alert('Message sent successfully! ✅');
+      setFormData({ name: '', email: '', message: '' });
+    })
+    .catch((error) => {
+      console.error('FAILED...', error);
+      alert('Failed to send message. Please try again. ❌');
+    });
+};
 
   const colors = {
     darkest: '#27374D',
@@ -67,7 +83,6 @@ export default function Contact() {
 
         <Grid container spacing={{ xs: 3, sm: 3, md: 4 }} sx={{ justifyContent: 'center', alignItems: 'stretch' }}>
           
-          {/* LEFT CARD */}
           <Grid item xs={12} md={6}>
             <Card
               sx={{
@@ -115,7 +130,6 @@ export default function Contact() {
                 </Typography>
               </Box>
 
-              {/* DUCK ANIMATION */}
               <Box 
                 sx={{ 
                   width: '100%', 
@@ -130,7 +144,6 @@ export default function Contact() {
                   style={{ width: '100%', height: '100%' }} 
                 />
               </Box>
-     
 
               <Box sx={{ display: 'flex', gap: { xs: 1.5, sm: 2 }, mt: 'auto', flexWrap: 'wrap' }}>
                 <Button
@@ -172,7 +185,6 @@ export default function Contact() {
             </Card>
           </Grid>
 
-          {/* RIGHT CARD */}
           <Grid item xs={12} md={6}>
             <Card
               sx={{
