@@ -26,7 +26,7 @@ export default function Projects() {
         </Typography>
         <Box sx={{ width: { xs: '80px', sm: '100px' }, height: '3px', backgroundColor: '#9DB2BF', margin: '0 auto', mb: { xs: 4, sm: 5, md: 6 } }} />
         
-        <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} sx={{ justifyContent: 'center' }}>
+        <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} sx={{ display: 'flex', justifyContent: 'center' , alignItems: 'stretch' }}>
           {projectsData.map((project, index) => (
             <Grid item xs={12} sm={12} md={6} key={index}>
               <motion.div
@@ -53,9 +53,17 @@ export default function Projects() {
                     <Typography 
                       variant="h5" 
                       sx={{ 
+                        display:'flex',
+                        justifyContent:'center',
+                        alignItems:'center',
                         color: '#9DB2BF', 
                         mb: 2,
-                        fontSize: { xs: '1.25rem', sm: '1.5rem', md: '1.75rem' }
+                        fontWeight: 'bold',
+                        fontSize: { xs: '1.25rem', sm: '1.5rem', md: '1.75rem' },
+                        textDecoration: 'underline',
+                        
+                        textUnderlineOffset: '6px',
+                        textDecorationColor: '#9DB2BF'
                       }}
                     >
                       {project.title}
@@ -77,6 +85,10 @@ export default function Projects() {
                           key={i}
                           variant="caption"
                           sx={{
+                            userSelect: 'none',
+                            WebkitUserSelect: 'none',
+                            MozUserSelect: 'none',
+                            msUserSelect: 'none',
                             backgroundColor: '#27374D',
                             color: '#9DB2BF',
                             padding: { xs: '4px 8px', sm: '6px 12px' },

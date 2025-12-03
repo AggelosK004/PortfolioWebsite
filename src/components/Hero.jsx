@@ -5,11 +5,13 @@ import Button from '@mui/material/Button';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
+
 export default function Hero() {
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
+  const font = "'Orbitron', sans-serif";
 
   useEffect(() => {
     const messages = ["Full-Stack Developer", "Problem Solver"];
@@ -66,7 +68,7 @@ export default function Hero() {
       >
         <Typography 
           variant="h6" 
-          sx={{ color: '#9DB2BF', fontWeight: 'bold', letterSpacing: 2, mb: 2, textTransform: 'uppercase' }}
+          sx={{ fontFamily:font,color: '#9DB2BF', fontWeight: 'bold', letterSpacing: 2, mb: 2, textTransform: 'uppercase' }}
         >
           Hi There, I'm
         </Typography>
@@ -74,6 +76,7 @@ export default function Hero() {
         <Typography 
           variant="h1" 
           sx={{ 
+            
             fontSize: { xs: '3rem', sm: '4.5rem', md: '5.5rem' }, 
             fontWeight: 'bold',
             color: '#DDE6ED',
@@ -87,6 +90,7 @@ export default function Hero() {
         <Typography 
           variant="h4" 
           sx={{ 
+            
             fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
             color: '#DDE6ED', 
             mb: 4,
@@ -103,6 +107,7 @@ export default function Hero() {
         <Typography 
           variant="body1" 
           sx={{ 
+            
             color: '#9DB2BF', 
             maxWidth: '700px',
             fontSize: { xs: '1rem', md: '1.2rem' },
@@ -125,6 +130,7 @@ export default function Hero() {
               fontWeight: 'bold',
               px: 5,
               py: 1.5,
+              
               fontSize: '1rem',
               '&:hover': { backgroundColor: '#526D82' }
             }}
@@ -140,6 +146,7 @@ export default function Hero() {
               fontWeight: 'bold',
               px: 5,
               py: 1.5,
+              
               fontSize: '1rem',
               '&:hover': { 
                 backgroundColor: 'rgba(157, 178, 191, 0.1)',

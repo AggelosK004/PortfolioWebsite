@@ -3,11 +3,15 @@ import Grid from '@mui/material/Grid';
 import React from 'react';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { FaJsSquare, FaHtml5, FaCss3Alt, FaGitAlt, FaReact } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaGitAlt, FaReact } from 'react-icons/fa';
+import { SiTypescript } from "react-icons/si";
+import { SiJavascript } from "react-icons/si";
+
 
 export default function Skills() {
   const skillStack = [
-    { name: 'JavaScript', icon: FaJsSquare, color: '#9DB2BF' },
+    {name: 'JavaScript', icon: SiJavascript, color: '#9DB2BF' },
+    {name: 'TypeScript', icon: SiTypescript, color: '#9DB2BF' },
     { name: 'HTML5', icon: FaHtml5, color: '#9DB2BF' },
     { name: 'CSS3', icon: FaCss3Alt, color: '#9DB2BF' },
     { name: 'Git', icon: FaGitAlt, color: '#9DB2BF' },
@@ -21,7 +25,7 @@ export default function Skills() {
           backgroundColor: '#526D82',
           maxWidth: '900px',
           margin: '0 auto',
-          padding: { xs: '20px 15px', sm: '25px 20px', md: '30px 20px' },
+          padding: { xs: '20px 15px', sm: '25px 20px', md: '30px 150px' },
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)',
           borderRadius: '10px',
           border: '2px solid #9DB2BF',
@@ -38,7 +42,7 @@ export default function Skills() {
         >
           Skills
         </Typography>
-        <Box sx={{ width: '100%', height: '1px', backgroundColor: '#9DB2BF', mb: { xs: 3, sm: 4 } }} />
+        <Box sx={{ flexDirection:'column',width: '100%', height: '1px', backgroundColor: '#9DB2BF', mb: { xs: 3, sm: 4 } }} />
         <Grid container spacing={{ xs: 2, sm: 2.5, md: 3 }} sx={{ justifyContent: 'center' }}>
           {skillStack.map((skill) => (
             <Grid item xs={6} sm={4} md={2} key={skill.name}>
@@ -59,7 +63,11 @@ export default function Skills() {
                   sx={{ 
                     color: '#DDE6ED', 
                     mt: 1,
-                    fontSize: { xs: '0.75rem', sm: '0.875rem' }
+                    fontSize: { xs: '0.75rem', sm: '0.875rem' },
+                    userSelect: 'none',
+                    WebkitUserSelect: 'none',
+                    MozUserSelect: 'none',
+                    msUserSelect: 'none',
                   }}
                 >
                   {skill.name}
