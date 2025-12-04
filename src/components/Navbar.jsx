@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -38,6 +37,7 @@ export default function Navbar() {
 
   const menuItems = [
     { label: 'Home', id: 'hero' },
+    { label: 'About', id: 'about' },
     { label: 'Skills', id: 'skills' },
     { label: 'Projects', id: 'projects' },
     { label: 'Contact', id: 'contact' },
@@ -45,11 +45,12 @@ export default function Navbar() {
 
   return (
     <>
-      <Toolbar sx={{ justifyContent: 'center', position: 'relative' }}>
+      <Toolbar sx={{ justifyContent: 'center', position: 'relative', zIndex: 10000 }}>
         
         <Box 
           position={'fixed'}
           sx={{ 
+            marginTop: '50px',
             display: { xs: 'none', md: 'flex' }, 
             gap: 1,
             backgroundColor: 'rgba(82, 109, 130, 0.5)', 

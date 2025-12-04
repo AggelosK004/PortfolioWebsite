@@ -53,7 +53,7 @@ export default function Hero() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '100vh',
+        minHeight: '80vh',
         pt: '64px',
         px: { xs: 3, sm: 4, md: 8 },
         textAlign: 'center', 

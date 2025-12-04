@@ -20,7 +20,8 @@ export default function Footer() {
           padding: { xs: '20px 15px', sm: '25px 20px', md: '30px 20px' },
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)',
           borderRadius: '10px',
-          border: '2px solid #9DB2BF'
+          border: '2px solid #9DB2BF',
+          marginBottom: '20px',
       }}
     >
       <Typography
@@ -33,6 +34,7 @@ export default function Footer() {
           gap: 1,
           fontSize: { xs: '0.875rem', sm: '1rem' },
           textShadow: '0 0 20px rgba(157, 178, 191, 0.6)',
+         
         }}
       >
         Made by Aggelos Kolitsis with <FaHeart color={colors.accent} size={16} />

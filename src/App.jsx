@@ -7,6 +7,9 @@ import Projects from './components/Projects.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 import ParticleBackground from './components/ParticleBackground.jsx';
+import About from './components/About.jsx';
+import CVbutton from './components/CV/CVbutton.jsx';
+import CV from './components/CV/Aggelos_Kolitsis_Resume_2025.pdf';
 
 function App() {
   return (
@@ -17,8 +20,10 @@ function App() {
       <Box sx={{ position: 'relative', zIndex: 1 }}>
         <Navbar />
         <Hero />
+        <About />
         <Skills />
         <Projects />
+        <CVbutton />
         <Contact />
         <Footer />
       </Box>

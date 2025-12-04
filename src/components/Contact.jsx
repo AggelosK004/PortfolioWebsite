@@ -5,10 +5,12 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 import { FaEnvelope, FaGithub, FaLinkedin, FaPhone } from 'react-icons/fa';
 import { MdLocationOn } from 'react-icons/md';
 import Lottie from 'lottie-react';
-import duckAnimation from '../assets/Pixel-Duck.json'; 
+import duckAnimation from '../assets/Pixel-Duck.json';
 import emailjs from '@emailjs/browser';
 
 export default function Contact() {
@@ -18,36 +20,46 @@ export default function Contact() {
     message: '',
   });
 
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: '',
+    severity: 'success',
+  });
+
+  const handleSnackbarClose = () => {
+    setSnackbar({ ...snackbar, open: false });
+  };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const serviceID = 'service_aa8t18d';
-  const templateID = 'template_f9zb99q';
-  const publicKey = 'yUQdvW7fsvkuR8m2D';
+    const serviceID = 'service_aa8t18d';
+    const templateID = 'template_f9zb99q';
+    const publicKey = 'yUQdvW7fsvkuR8m2D';
 
-  const templateParams = {
-    from_name: formData.name,
-    from_email: formData.email,
-    message: formData.message,
-    to_name: 'Aggelos',
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+      to_name: 'Aggelos',
+    };
+
+    emailjs
+      .send(serviceID, templateID, templateParams, publicKey)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        setSnackbar({ open: true, message: 'Message sent successfully! ✅', severity: 'success' });
+        setFormData({ name: '', email: '', message: '' });
+      })
+      .catch((error) => {
+        console.error('FAILED...', error);
+        setSnackbar({ open: true, message: 'Failed to send message. Please try again. ❌', severity: 'error' });
+      });
   };
-
-  emailjs
-    .send(serviceID, templateID, templateParams, publicKey)
-    .then((response) => {
-      console.log('SUCCESS!', response.status, response.text);
-      alert('Message sent successfully! ✅');
-      setFormData({ name: '', email: '', message: '' });
-    })
-    .catch((error) => {
-      console.error('FAILED...', error);
-      alert('Failed to send message. Please try again. ❌');
-    });
-};
 
   const colors = {
     darkest: '#27374D',
@@ -61,18 +73,13 @@ export default function Contact() {
       <Box sx={{ maxWidth: '1000px', margin: '0 auto' }}>
         <Typography
           variant="h3"
-          sx={{
-            textAlign: 'center',
-            mb: 2,
-            color: colors.light,
-            fontSize: { xs: '1.75rem', sm: '2.5rem', md: '3rem' },
-          }}
+          sx={{ textAlign: 'center', mb: 2, color: colors.light, fontSize: { xs: '1.75rem', sm: '2.5rem', md: '3rem' } }}
         >
           Get In Touch
         </Typography>
 
-        <Box 
-          sx={{ 
+        <Box
+          sx={{
             width: { xs: '80px', sm: '100px' },
             height: '3px',
             backgroundColor: colors.accent,
@@ -82,7 +89,6 @@ export default function Contact() {
         />
 
         <Grid container spacing={{ xs: 3, sm: 3, md: 4 }} sx={{ justifyContent: 'center', alignItems: 'stretch' }}>
-          
           <Grid item xs={12} md={6}>
             <Card
               sx={{
@@ -130,19 +136,8 @@ export default function Contact() {
                 </Typography>
               </Box>
 
-              <Box 
-                sx={{ 
-                  width: '100%', 
-                  overflow:'visible',
-                  height: { xs: '150px', sm: '200px' },
-                  mb: 3,
-                }}
-              > 
-                <Lottie 
-                  animationData={duckAnimation} 
-                  loop={true} 
-                  style={{ width: '100%', height: '100%' }} 
-                />
+              <Box sx={{ width: '100%', overflow: 'visible', height: { xs: '150px', sm: '200px' }, mb: 3 }}>
+                <Lottie animationData={duckAnimation} loop={true} style={{ width: '100%', height: '100%' }} />
               </Box>
 
               <Box sx={{ display: 'flex', gap: { xs: 1.5, sm: 2 }, mt: 'auto', flexWrap: 'wrap' }}>
@@ -295,9 +290,19 @@ export default function Contact() {
               </form>
             </Card>
           </Grid>
-
         </Grid>
       </Box>
+
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={4000}
+        onClose={handleSnackbarClose}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert severity={snackbar.severity} onClose={handleSnackbarClose} sx={{ width: '100%' }}>
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 }
