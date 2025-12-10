@@ -4,20 +4,21 @@ import React from 'react';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { FaHtml5, FaCss3Alt, FaGitAlt, FaReact } from 'react-icons/fa';
-import { SiTypescript } from "react-icons/si";
-import { SiJavascript } from "react-icons/si";
-import { SiMysql } from 'react-icons/si';
+import { SiTypescript,SiJavascript,SiNestjs, SiMysql, SiPostgresql } from "react-icons/si";
+
 
 
 export default function Skills() {
   const skillStack = [
     {name: 'JavaScript', icon: SiJavascript, color: '#9DB2BF' },
     {name: 'TypeScript', icon: SiTypescript, color: '#9DB2BF' },
+    { name: 'ReactJs', icon: FaReact, color: '#9DB2BF' },
     { name: 'HTML5', icon: FaHtml5, color: '#9DB2BF' },
     { name: 'CSS3', icon: FaCss3Alt, color: '#9DB2BF' },
-    { name: 'MySQL', icon: SiMysql, color: '#9DB2BF' },
+    { name: 'PostgreSQL', icon: SiPostgresql, color: '#9DB2BF' },
+    { name: 'NestJs', icon: SiNestjs, color: '#9DB2BF' },
     { name: 'Git', icon: FaGitAlt, color: '#9DB2BF' },
-    { name: 'React', icon: FaReact, color: '#9DB2BF' },
+    
   ];
 
   return (

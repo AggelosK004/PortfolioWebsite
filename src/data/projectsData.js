@@ -1,10 +1,10 @@
 export const projectsData = [
   {
     title: 'To-Do List',
-    description: 'A clean and intuitive task management application that helps users organize their daily activities. Features include task creation, editing, deletion, and persistent local storage to save your tasks between sessions.',
-    technologies: ['HTML', 'CSS', 'JavaScript'],
+    description: 'Developed a full-stack task management application using HTML, CSS, and JavaScript for the frontend, integrated with a NestJS and PostgreSQL backend. Features include JWT authentication, persistent data storage,and a responsive user interface.',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'NestJs', 'PostgreSQL'],
     github: 'https://github.com/AggelosK004/To-Do-List-project',
-    live: 'https://aggelosk004.github.io/To-Do-List-project/',
+    live: 'https://aggelos-kolitsis-todolist.netlify.app/',
   },
   {
     title: 'CloudView',
