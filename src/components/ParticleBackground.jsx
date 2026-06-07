@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import Particles, { initParticlesEngine } from '@tsparticles/react';
-import { loadSlim } from '@tsparticles/slim';
+import React, { useEffect, useState } from "react";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
 
 export default function ParticleBackground() {
   const [init, setInit] = useState(false);
@@ -82,11 +82,11 @@ export default function ParticleBackground() {
         id="tsparticles"
         options={options}
         style={{
-          position: 'absolute',
+          position: "absolute",
           top: 0,
           left: 0,
-          width: '100%',
-          height: '100%',
+          width: "100%",
+          height: "100%",
           zIndex: -1,
         }}
       />
